@@ -144,7 +144,7 @@ a{
       }
     .form-popup {
         display: none;
-        position: fixed;
+        position: absolute;
         border: none;
         z-index: 9;
         margin-top:50px;

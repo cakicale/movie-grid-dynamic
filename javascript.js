@@ -4,23 +4,25 @@ var openForm = (arg)=>{
         document.getElementById(arg).style.display = 'none';
     }
     else {
-        for(var i=1;i<13;i++){
-            document.getElementById("myForm"+i).style.display="none";
-        }
+        closeForm();
         document.getElementById(arg).style.display = 'block';
     }
             
 };
 
+var closeForm = () => {
+    var form =document.getElementsByClassName("form-popup");
+    for(var i=0;i<12;i++){
+        form[i].style.display="none";
+    }
+}
 
 document.addEventListener('click', function(event) {
     let id = event.target.id;
     var thenum = id.replace( /^\D+/g, '');
     
     if (!id.includes('btn')) {
-        for(var i=1;i<13;i++){
-            document.getElementById("myForm"+i).style.display="none";
-        }
+        closeForm();
     }
     else {
         openForm('myForm'+thenum);
