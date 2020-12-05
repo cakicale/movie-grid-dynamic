@@ -2,26 +2,22 @@
 var selectTitle = document.getElementsByTagName("h2");
 var selectDesc = document.getElementsByClassName("overview");
 var selectRating = document.getElementsByClassName("procenat");
-//fetching data
-let title,
-    mainObj = {};
 
+//fetching data
 fetch("./movies.json")
     .then(function(resp) {
         return resp.json();
     })
     .then(function(data) {
-        mainObj=data;
-        console.log('pull the update');
-        showData();
+        showData(data);
     });
 
 //function used in fetch
-let showData = function() {
-    for(let prop in mainObj){
-        selectTitle[prop].innerHTML = mainObj[prop].title;
-        selectDesc[prop].innerHTML = mainObj[prop].description;
-        selectRating[prop].innerHTML = mainObj[prop].rating;
+let showData = function(data) {
+    for(let prop in data){
+        selectTitle[prop].innerHTML = data[prop].title;
+        selectDesc[prop].innerHTML = data[prop].description;
+        selectRating[prop].innerHTML = data[prop].rating;
     };
 }
 
