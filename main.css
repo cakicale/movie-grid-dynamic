@@ -1,4 +1,6 @@
-
+.form-popup{
+    display:none;
+}
 .container {
     display: grid;
     grid-template-columns: 1fr;
