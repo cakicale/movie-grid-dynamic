@@ -12,6 +12,7 @@ fetch("./movies.json")
     })
     .then(function(data) {
         mainObj=data;
+        console.log('pull the update');
         showData();
     });
 
