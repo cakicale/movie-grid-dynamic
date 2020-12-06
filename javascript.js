@@ -68,7 +68,6 @@ function showMovies(event, data) {
     for (let prop in data) {
         if (!data[prop].title.toLowerCase().includes(event.target.value.toLowerCase())) {
             selectTitle[prop].parentElement.parentElement.style.display = "none";
-            console.log(data[prop].title);
         }
         else {
             selectTitle[prop].parentElement.parentElement.style.display = "block";
