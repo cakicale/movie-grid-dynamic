@@ -47,16 +47,24 @@ var closeForm = () => {
 
 //fetching data
 
-fetch("./movies.json")
-    .then(function (resp) {
-        return resp.json();
-    })
-    .then(function (data) {
-        showData(data);
-    });
+function fetchMovies(...args) {
+    fetch("./movies.json")
+        .then(function (resp) {
+            return resp.json();
+        })
+        .then(function (data) {
+            if (args.length > 1) {
+                args[0](...args.slice(1, args.length), data);
+            }
+            else {
+                args[0](data);
+            }
 
+        });
+}
 //function used in fetch
-let showData = function (data) {
+
+let showData = (data) => {
     for (let prop in data) {
         selectTitle[prop].innerHTML = data[prop].title;
         selectDesc[prop].innerHTML = data[prop].description;
@@ -64,7 +72,7 @@ let showData = function (data) {
     };
 };
 
-function showMovies(event, data) {
+let showMovies = (event, data) => {
     for (let prop in data) {
         if (!data[prop].title.toLowerCase().includes(event.target.value.toLowerCase())) {
             selectTitle[prop].parentElement.parentElement.style.display = "none";
@@ -74,13 +82,8 @@ function showMovies(event, data) {
         };
     }
 }
-
 function updateSearch(event) {
-    fetch("./movies.json")
-        .then(function (resp) {
-            return resp.json();
-        })
-        .then(function (data) {
-            showMovies(event, data);
-        });
+    fetchMovies(showMovies, event);
 };
+//calling functions
+fetchMovies(showData);
