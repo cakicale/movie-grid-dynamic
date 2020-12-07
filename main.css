@@ -5,8 +5,14 @@
   justify-content: center;
 
 }
+.navigation{
+  display:flex;
+  flex:1;
+  width:400px;
+  max-width: 100%;
+}
 .search {
-  min-width: 400px;
+  flex:1;
   height: 30px;
   margin-bottom:10px;
   text-align: end;
@@ -16,9 +22,11 @@
   display: none;
 }
 .container {
+  display:flex;
+  flex-direction: column;
   width:100%;
   grid-template-columns: 1fr;
-  row-gap: 30px;
+  row-gap: 10px;
 }
 .item1 {
   min-width: 100%;
