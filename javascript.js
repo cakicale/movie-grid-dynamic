@@ -117,7 +117,6 @@ const showData = async () => {
         movieTitle.append(aTitle);
         let pDate = document.createElement("p");
         pDate.setAttribute("class", "date");
-        pDate.innerHTML = "Jul 31, 2020";
         divMovieText.append(pDate);
         let pOverview = document.createElement("p");
         pOverview.setAttribute("class", "overview");
