@@ -43,19 +43,20 @@ const fetchMoviesJSON = async () => {
     return movies;
 }
 
-//function used with fetch
-const showForm = (divItem, prop) => {
+//dynamic html
+const showFormBtn = (prop) => {
     let threeDotButton = document.createElement("button");
     threeDotButton.setAttribute("id", "btn" + prop);
     threeDotButton.setAttribute("class", "iconify");
     threeDotButton.setAttribute("data-icon", "entypo-dots-three-horizontal");
     threeDotButton.setAttribute("data-inline", "false");
-    divItem.append(threeDotButton);
-
+    return threeDotButton;
+}
+const showForm = (prop) => {
     let divForm = document.createElement("div");
     divForm.setAttribute("class", "form-popup");
     divForm.setAttribute("id", "myForm" + prop);
-    divItem.append(divForm);
+
 
     let pFormText1 = document.createElement("p");
     pFormText1.innerHTML = "Want to rate or add this item to a list?";
@@ -77,17 +78,22 @@ const showForm = (divItem, prop) => {
     a2.setAttribute("href", "#");
     divForm.append(a2);
 
+    return divForm;
 }
-const showPicture = (divItem, prop) => {
+const showPicture = (prop) => {
     let imgMovie = document.createElement("img");
     imgMovie.setAttribute("src", "slike/" + prop + ".jpg");
-    divItem.append(imgMovie);
+    return imgMovie;
 }
-const showMovieInfo = (divItem) => {
+const showMovieInfo = () => {
     let divMovieText = document.createElement("div");
     divMovieText.setAttribute("class", "text");
-    divItem.append(divMovieText);
-    showRating(divMovieText);
+
+    //provera rating-a
+    const rating = showRating();
+    divMovieText.append(rating[0]);
+    divMovieText.append(rating[1]);
+    ///
     let movieTitle = document.createElement("h2");
     divMovieText.append(movieTitle);
     let aTitle = document.createElement("a");
@@ -99,20 +105,24 @@ const showMovieInfo = (divItem) => {
     let pOverview = document.createElement("p");
     pOverview.setAttribute("class", "overview");
     divMovieText.append(pOverview);
+
+
+    return divMovieText;
 }
-const showRating = (divMovieText) => {
+const showRating = () => {
     let span1 = document.createElement("span");
     span1.setAttribute("class", "dot");
-    divMovieText.append(span1);
+    //divMovieText.append(span1);
     let span2 = document.createElement("span");
     span2.setAttribute("class", "inner-circle");
-    divMovieText.append(span2);
+    //divMovieText.append(span2);
     let spanPercentNumber = document.createElement("span");
     spanPercentNumber.setAttribute("class", "procenat");
     span2.append(spanPercentNumber);
     let spanPercentSign = document.createElement("span");
     spanPercentSign.setAttribute("class", "percent");
     span2.append(spanPercentSign);
+    return [span1, span2];
 }
 const showData = async () => {
 
@@ -124,11 +134,14 @@ const showData = async () => {
         divItem.setAttribute("class", "item1");
         container.append(divItem);
         //form
-        showForm(divItem, prop);
+        divItem.append(showFormBtn(prop));
+
+        divItem.append(showForm(prop));
+
         //movie
-        showPicture(divItem, prop);
+        divItem.append(showPicture(prop));
         //movie text
-        showMovieInfo(divItem);
+        divItem.append(showMovieInfo());
         //data
         selectTitle[prop].innerHTML = data[prop].title;
         selectDesc[prop].innerHTML = data[prop].description;
