@@ -101,10 +101,5 @@ const showData = async () => {
 };
 
 export {
-    showData,
-    showRating,
-    showPicture,
-    showMovieInfo,
-    showForm,
-    showFormBtn
+    showData
 };
