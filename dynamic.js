@@ -100,6 +100,4 @@ const showData = async () => {
     };
 };
 
-export {
-    showData
-};
+export { showData };
