@@ -4,9 +4,9 @@ import { showPicture } from "./picture.js";
 import { showMovieInfo } from "./movieInfo.js";
 
 const showMovieCard = (prop, data) => {
-    //form
     const divItem = document.createElement("div");
     divItem.setAttribute("class", "item1");
+    //form
     divItem.append(showFormBtn(prop));
     divItem.append(showForm(prop));
     //movie pic

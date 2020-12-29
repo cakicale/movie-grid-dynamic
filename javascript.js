@@ -1,13 +1,9 @@
 import { showMovieCard } from "./components/movieCard.js";
-import { showSearchedMovies } from "./search.js";
-import { closeForm, openForm } from "./form.js";
-import { fetchMoviesJSON } from "./fetchData.js";
-//selectors
-const selectInput = document.getElementById("searchBox");
+import { closeForm, openForm } from "./functions/form.js";
+import { fetchMoviesJSON } from "./functions/fetchData.js";
+import { showSearchBar } from "./components/searchBar.js";
 
-//listeners
-//search listener
-selectInput.addEventListener('input', showSearchedMovies);
+
 //form listener
 document.addEventListener('click', function (event) {
     let id = event.target.id;
@@ -23,13 +19,15 @@ document.addEventListener('click', function (event) {
 
 //functions
 const showData = async () => {
+    const searchBar = document.querySelector("#navigation");
+    searchBar.append(showSearchBar());
+
     const container = document.querySelector("#container");
     const data = await fetchMoviesJSON();
     for (let prop in data) {
         container.append(showMovieCard(prop, data));
     };
 };
-
 
 
 

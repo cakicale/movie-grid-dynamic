@@ -2,8 +2,6 @@ import { fetchMoviesJSON } from "./fetchData.js";
 //selectors
 const selectTitle = document.getElementsByTagName("h2");
 
-
-
 const showSearchedMovies = async (event) => {
     const data = await fetchMoviesJSON();
     for (let prop in data) {
