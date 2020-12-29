@@ -1,7 +1,7 @@
-import { showData } from "./components/movieCard.js";
+import { showMovieCard } from "./components/movieCard.js";
 import { showSearchedMovies } from "./search.js";
 import { closeForm, openForm } from "./form.js";
-
+import { fetchMoviesJSON } from "./fetchData.js";
 //selectors
 const selectInput = document.getElementById("searchBox");
 
@@ -22,4 +22,16 @@ document.addEventListener('click', function (event) {
 });
 
 //functions
+const showData = async () => {
+    const container = document.querySelector("#container");
+    const data = await fetchMoviesJSON();
+    for (let prop in data) {
+        container.append(showMovieCard(prop, data));
+    };
+};
+
+
+
+
+
 showData();
