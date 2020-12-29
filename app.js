@@ -1,8 +1,8 @@
 import { showMovieCard } from "./components/movieCard.js";
-import { closeForm, openForm } from "./functions/form.js";
-import { fetchMoviesJSON } from "./functions/fetchData.js";
+import { closeForm, openForm } from "./components/form.js";
+import { fetchMoviesJSON } from "./services/fetchData.js";
 import { showSearchBar } from "./components/searchBar.js";
-import { showSearchedMovies } from "./functions/search.js";
+import { showSearchedMovies } from "./utils/search.js";
 
 //form listener
 document.addEventListener('click', function (event) {

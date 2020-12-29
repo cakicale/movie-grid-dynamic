@@ -1,4 +1,4 @@
-import { fetchMoviesJSON } from "./fetchData.js";   
+import { fetchMoviesJSON } from "../services/fetchData.js";   
 //selectors
 const selectTitle = document.getElementsByTagName("h2");
 
