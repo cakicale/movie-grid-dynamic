@@ -1,16 +1,13 @@
-import { showData } from "./dynamic.js";
+import { showData } from "./components/movieCard.js";
 import { showSearchedMovies } from "./search.js";
 import { closeForm, openForm } from "./form.js";
 
 //selectors
 const selectInput = document.getElementById("searchBox");
 
-
 //listeners
-
 //search listener
 selectInput.addEventListener('input', showSearchedMovies);
-
 //form listener
 document.addEventListener('click', function (event) {
     let id = event.target.id;
@@ -25,5 +22,4 @@ document.addEventListener('click', function (event) {
 });
 
 //functions
-
 showData();
