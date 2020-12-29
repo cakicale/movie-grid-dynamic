@@ -2,7 +2,7 @@ import { showMovieCard } from "./components/movieCard.js";
 import { closeForm, openForm } from "./functions/form.js";
 import { fetchMoviesJSON } from "./functions/fetchData.js";
 import { showSearchBar } from "./components/searchBar.js";
-
+import { showSearchedMovies } from "./functions/search.js";
 
 //form listener
 document.addEventListener('click', function (event) {
@@ -20,7 +20,7 @@ document.addEventListener('click', function (event) {
 //functions
 const showData = async () => {
     const searchBar = document.querySelector("#navigation");
-    searchBar.append(showSearchBar());
+    searchBar.append(showSearchBar(showSearchedMovies));
 
     const container = document.querySelector("#container");
     const data = await fetchMoviesJSON();
