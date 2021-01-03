@@ -1,9 +1,10 @@
 import { showMovieCard } from "./components/movieCard.js";
 import { closeForm, openForm } from "./components/form.js";
 import { fetchMoviesJSON } from "./services/fetchData.js";
-import { showSearchBar } from "./components/searchBar.js";
-import { showSearchedMovies } from "./utils/search.js";
+import { searchBar } from "./components/searchBar.js";
+import { removeAllChildNodes } from "./utils/removeChild.js";
 
+export { showData };
 //form listener
 document.addEventListener('click', function (event) {
     let id = event.target.id;
@@ -17,19 +18,22 @@ document.addEventListener('click', function (event) {
     }
 });
 
+const showSearchBar = () => {
+    const navigation = document.querySelector("#navigation");
+    navigation.append(searchBar(showData));
+}
 //functions
-const showData = async () => {
-    const searchBar = document.querySelector("#navigation");
-    searchBar.append(showSearchBar(showSearchedMovies));
-
+const showData = async (searchedMovie) => {
     const container = document.querySelector("#container");
-    const data = await fetchMoviesJSON();
+    const data = await fetchMoviesJSON(searchedMovie);
+    removeAllChildNodes(container);
     for (let prop in data) {
-        container.append(showMovieCard(prop, data));
-    };
+        container.append(showMovieCard(prop, data[prop]));
+    }
+
 };
 
 
 
-
+showSearchBar();
 showData();

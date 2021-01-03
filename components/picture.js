@@ -1,6 +1,7 @@
-const showPicture = (picNum) => {
+const showPicture = (picName) => {
     const imgMovie = document.createElement("img");
-    imgMovie.setAttribute("src", "images/" + picNum + ".jpg");
+
+    imgMovie.setAttribute("src", "images/" + picName.replace(":", "") + ".jpg");
     return imgMovie;
 }
 

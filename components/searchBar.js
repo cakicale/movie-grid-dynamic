@@ -1,4 +1,4 @@
-const showSearchBar = (method) => {
+const searchBar = (method) => {
     const searchInput = document.createElement("input");
     searchInput.setAttribute("class", "search");
     searchInput.setAttribute("id", "searchBox");
@@ -8,4 +8,4 @@ const showSearchBar = (method) => {
     return searchInput;
 }
 
-export { showSearchBar };
+export { searchBar };

@@ -3,16 +3,17 @@ import { showForm } from "./form.js";
 import { showPicture } from "./picture.js";
 import { showMovieInfo } from "./movieInfo.js";
 
-const showMovieCard = (prop, data) => {
+const showMovieCard = (prop, movie) => {
     const divItem = document.createElement("div");
     divItem.setAttribute("class", "item1");
     //form
     divItem.append(showFormBtn(prop));
     divItem.append(showForm(prop));
     //movie pic
-    divItem.append(showPicture(prop));
+    divItem.append(showPicture(movie.title));
     //movie text
-    divItem.append(showMovieInfo(data[prop].title, data[prop].description, data[prop].date, data[prop].rating));
+    divItem.append(showMovieInfo(movie.title, movie.description, movie.date, movie.rating));
+
     return divItem;
 };
 
