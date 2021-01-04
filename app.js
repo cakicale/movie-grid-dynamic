@@ -14,7 +14,6 @@ document.addEventListener('click', function (event) {
     let arg = "myForm" + thenum;
 
     if (!id.includes('btn')) {
-        //closeForm();
         if (last != undefined) {
             document.getElementById(last).style.display = 'none';
             last = undefined;
