@@ -28,17 +28,8 @@ const openForm = (arg) => {
         document.getElementById(arg).style.display = 'none';
     }
     else {
-        closeForm();
         document.getElementById(arg).style.display = 'block';
     }
 };
 
-const closeForm = () => {
-    var form = document.getElementsByClassName("form-popup");
-    const container = document.querySelector("#container");
-    for (var i = 0; i < container.children.length; i++) {
-        form[i].style.display = "none";
-    }
-};
-
-export { showForm, openForm, closeForm };
+export { showForm, openForm };
