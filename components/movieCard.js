@@ -7,10 +7,10 @@ const showMovieCard = (prop, movie) => {
     const divItem = document.createElement("div");
     divItem.setAttribute("class", "item1");
     //form
-    divItem.append(showFormBtn(prop));
-    divItem.append(showForm(prop));
+    divItem.append(showFormBtn(movie.id));
+    divItem.append(showForm(movie.id));
     //movie pic
-    divItem.append(showPicture(movie.title));
+    divItem.append(showPicture(movie.id));
     //movie text
     divItem.append(showMovieInfo(movie.title, movie.description, movie.date, movie.rating));
 

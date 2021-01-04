@@ -35,7 +35,8 @@ const openForm = (arg) => {
 
 const closeForm = () => {
     var form = document.getElementsByClassName("form-popup");
-    for (var i = 0; i < 12; i++) {
+    const container = document.querySelector("#container");
+    for (var i = 0; i < container.children.length; i++) {
         form[i].style.display = "none";
     }
 };
