@@ -3,7 +3,7 @@ import { showForm } from "./form.js";
 import { showPicture } from "./picture.js";
 import { showMovieInfo } from "./movieInfo.js";
 
-const showMovieCard = (prop, movie) => {
+const showMovieCard = (movie) => {
     const divItem = document.createElement("div");
     divItem.setAttribute("class", "item1");
     //form

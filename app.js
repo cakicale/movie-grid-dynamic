@@ -28,7 +28,7 @@ const showData = async (searchedMovie) => {
     const data = await fetchMoviesJSON(searchedMovie);
     removeAllChildNodes(container);
     for (let prop in data) {
-        container.append(showMovieCard(prop, data[prop]));
+        container.append(showMovieCard(data[prop]));
     }
 
 };
